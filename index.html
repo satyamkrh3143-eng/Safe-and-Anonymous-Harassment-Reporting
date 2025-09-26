@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeReport - Anonymous Harassment Reporting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23ffffff'/><path d='M30,40 L70,40 L70,60 L30,60 Z' fill='%234a6fa5'/><circle cx='40' cy='35' r='5' fill='%234a6fa5'/><circle cx='60' cy='35' r='5' fill='%234a6fa5'/></svg>" 
+                     alt="SafeReport Logo" class="logo-img">
+                SafeReport
+            </div>
+            <ul class="nav-links">
+                <li><a href="#report">File Report</a></li>
+                <li><a href="#check-status">Check Status</a></li>
+                <li><a href="#cases">View Cases</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">☰</div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Report Harassment Safely & Anonymously</h1>
+                    <p>Your privacy is protected. No identifying information is shared publicly.</p>
+                    <div class="hero-buttons">
+                        <a href="#report" class="btn">File a Report Now</a>
+                        <a href="#cases" class="btn btn-secondary">View Public Cases</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='400' height='300' fill='%234a6fa5' opacity='0.1'/><path d='M200,100 Q250,50 300,100 T400,100' stroke='%23ffffff' stroke-width='2' fill='none'/><circle cx='200' cy='150' r='60' fill='%23ffffff' opacity='0.2'/><path d='M150,200 L250,200 M150,220 L250,220 M150,240 L250,240' stroke='%23ffffff' stroke-width='3'/><path d='M100,250 L300,250' stroke='%23ffffff' stroke-width='2'/></svg>" 
+                         alt="Safe Reporting Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="report" class="section">
+            <h2>File a Harassment Report</h2>
+            <div class="safety-warning">
+                <div class="warning-icon">⚠️</div>
+                <div>
+                    <h3>Your Safety & Privacy First</h3>
+                    <p>All information is encrypted and your identity is protected. You can choose to remain completely anonymous.</p>
+                </div>
+            </div>
+            
+            <form id="complaintForm">
+                <div class="form-group">
+                    <label for="incidentDate">When did this happen? *</label>
+                    <input type="datetime-local" id="incidentDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category of Harassment *</label>
+                    <select id="category" required>
+                        <option value="">Select category</option>
+                        <option value="verbal">Verbal Harassment</option>
+                        <option value="physical">Physical Harassment</option>
+                        <option value="online">Online Harassment</option>
+                        <option value="workplace">Workplace Harassment</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Approximate Location (Optional)</label>
+                    <input type="text" id="location" placeholder="e.g., Downtown Area, City Park">
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Brief Description (max 300 characters) *</label>
+                    <textarea id="description" maxlength="300" required placeholder="Please describe what happened..."></textarea>
+                    <div class="char-count"><span id="charCount">300</span> characters remaining</div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Evidence (Photos, Videos, Documents) - Strongly Recommended</label>
+                    <p class="help-text">Upload any evidence you have. Maximum 50MB per file. Supported formats: JPG, PNG, MP4, MP3, WAV, PDF.</p>
+                    
+                    <div class="file-upload" id="fileUploadArea">
+                        <div class="upload-icon">📁</div>
+                        <p>Click here or drag files to upload evidence</p>
+                        <input type="file" id="fileInput" multiple style="display: none;" accept=".jpg,.jpeg,.png,.mp4,.mp3,.wav,.pdf">
+                    </div>
+                    
+                    <div class="file-list" id="fileList"></div>
+                    
+                    <!-- Photo Preview Grid -->
+                    <div class="photo-preview" id="photoPreview">
+                        <h4>Image Previews</h4>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="anonymous">
+                        <label for="anonymous">Submit anonymously (we cannot contact you for follow-up)</label>
+                    </div>
+                </div>
+                
+                <div id="contactSection" style="display: none;">
+                    <div class="form-group">
+                        <label for="email">Email (Optional)</label>
+                        <input type="email" id="email" placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone (Optional)</label>
+                        <input type="tel" id="phone" placeholder="(123) 456-7890">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" required>
+                        <label for="consent">I understand how my data will be used and protected *</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">
+                    <span class="btn-icon">🛡️</span>
+                    Submit Report Securely
+                </button>
+            </form>
+        </section>
+
+        <section id="check-status" class="section">
+            <h2>Check Your Case Status</h2>
+            <div class="status-intro">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23f0f8ff' stroke='%234a6fa5' stroke-width='2'/><path d='M40,50 L45,55 L60,40' stroke='%2328a745' stroke-width='5' fill='none'/></svg>" 
+                     alt="Status Check" class="section-icon">
+                <p>Enter your case ID to check the current status of your report.</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="caseIdInput">Case ID</label>
+                <input type="text" id="caseIdInput" placeholder="e.g., HR-2024-001234">
+            </div>
+            
+            <button class="btn" id="checkStatusBtn">
+                <span class="btn-icon">🔍</span>
+                Check Status
+            </button>
+            
+            <div id="statusResult" style="display: none; margin-top: 1rem; padding: 1rem; background: #f0f8ff; border-radius: 4px;">
+                <h3>Case Status</h3>
+                <div id="statusDetails"></div>
+                <button class="btn btn-secondary" id="shareThisCase" style="margin-top: 1rem;">
+                    <span class="btn-icon">🔗</span>
+                    Share This Case
+                </button>
+            </div>
+        </section>
+
+        <section id="cases" class="section">
+            <h2>Public Case List</h2>
+            <div class="section-intro">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='30' width='60' height='40' fill='%23f0f0f0' stroke='%23333' stroke-width='2'/><rect x='25' y='35' width='50' height='30' fill='%23ffffff'/><line x1='25' y1='45' x2='75' y2='45' stroke='%23333' stroke-width='1'/><line x1='25' y1='55' x2='75' y2='55' stroke='%23333' stroke-width='1'/></svg>" 
+                     alt="Case List" class="section-icon">
+                <p>To protect victim privacy, no identifying information is shown.</p>
+            </div>
+            
+            <div class="tabs">
+                <div class="tab active" data-tab="all">All Cases</div>
+                <div class="tab" data-tab="received">Received</div>
+                <div class="tab" data-tab="reviewing">Under Review</div>
+                <div class="tab" data-tab="escalated">Escalated</div>
+                <div class="tab" data-tab="closed">Closed</div>
+            </div>
+            
+            <div class="tab-content active" id="tab-all">
+            </div>
+            
+            <div class="tab-content" id="tab-received">
+                <div class="no-cases">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23f8f9fa' stroke='%23dee2e6' stroke-width='2'/><text x='50' y='55' font-family='Arial' font-size='14' text-anchor='middle' fill='%236c757d'>No cases</text></svg>" 
+                         alt="No cases">
+                    <p>No cases with "Received" status at the moment.</p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab-reviewing">
+            </div>
+            
+            <div class="tab-content" id="tab-escalated">
+            </div>
+            
+            <div class="tab-content" id="tab-closed">
+            </div>
+        </section>
+
+        <section id="resources" class="section">
+            <h2>Emergency Resources</h2>
+            <div class="resources-intro">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50,20 L80,40 L80,80 L20,80 L20,40 Z' fill='%23ffe6e6' stroke='%23dc3545' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='%23dc3545'/><text x='50' y='55' font-family='Arial' font-size='12' text-anchor='middle' fill='white' font-weight='bold'>!</text></svg>" 
+                     alt="Emergency" class="section-icon">
+                <p>If you need immediate help, these resources are available 24/7:</p>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">📞</div>
+                <div class="resource-content">
+                    <h3>National Sexual Assault Hotline</h3>
+                    <p class="phone">1-800-656-4673</p>
+                    <p class="availability">Available 24/7</p>
+                    <button class="call-btn" onclick="window.open('tel:1-800-656-4673')">Call Now</button>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">💬</div>
+                <div class="resource-content">
+                    <h3>Crisis Text Line</h3>
+                    <p class="phone">Text HOME to 741741</p>
+                    <p class="availability">Available 24/7</p>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">🏠</div>
+                <div class="resource-content">
+                    <h3>Local Women's Shelter</h3>
+                    <p class="phone">555-0123</p>
+                    <p class="availability">Available 24/7</p>
+                    <button class="call-btn" onclick="window.open('tel:555-0123')">Call Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2>About SafeReport</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>SafeReport is a privacy-first platform for reporting harassment incidents safely and anonymously. We prioritize victim safety and privacy above all else.</p>
+                    
+                    <h3>How We Protect Your Privacy</h3>
+                    <ul>
+                        <li>No identifying information is ever shown publicly</li>
+                        <li>Optional contact information is encrypted</li>
+                        <li>Only authorized personnel can access full case details</li>
+                        <li>All data is stored securely with encryption</li>
+                    </ul>
+                    
+                    <h3>Our Process</h3>
+                    <ol>
+                        <li>You submit a report with as much or as little detail as you're comfortable with</li>
+                        <li>We assign your case to the appropriate authority</li>
+                        <li>You receive a case ID to track progress (if you provided contact info)</li>
+                        <li>The assigned authority reviews and takes appropriate action</li>
+                    </ol>
+                </div>
+                <div class="about-image">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='80' fill='%23f0f8ff' stroke='%234a6fa5' stroke-width='2'/><path d='M70,80 L130,80 L130,120 L70,120 Z' fill='%234a6fa5' opacity='0.2'/><circle cx='85' cy='70' r='8' fill='%234a6fa5' opacity='0.5'/><circle cx='115' cy='70' r='8' fill='%234a6fa5' opacity='0.5'/><path d='M80,100 L120,100 M80,110 L120,110 M80,120 L120,120' stroke='%234a6fa5' stroke-width='3'/></svg>" 
+                         alt="Privacy Protection">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="shareModal" class="share-modal">
+        <div class="share-modal-content">
+            <h3>Share Case</h3>
+            <p>Share this link to allow others to view this case (no private information will be shown):</p>
+            
+            <div class="share-url-container">
+                <input type="text" id="shareURL" class="share-url" readonly>
+                <button class="copy-btn" id="copyURL">Copy</button>
+            </div>
+            
+            <div class="share-options">
+                <button class="share-option" id="shareWhatsApp">
+                    <span class="share-icon">💬</span>
+                    WhatsApp
+                </button>
+                <button class="share-option" id="shareEmail">
+                    <span class="share-icon">📧</span>
+                    Email
+                </button>
+                <button class="share-option" id="shareSMS">
+                    <span class="share-icon">📱</span>
+                    SMS
+                </button>
+            </div>
+            
+            <div class="qr-code" id="qrCodeContainer">
+                <p>Scan QR Code to share:</p>
+                <canvas id="qrCode" width="150" height="150"></canvas>
+            </div>
+            
+            <button class="close-modal" id="closeModal">Close</button>
+        </div>
+    </div>
+
+
+    <div id="photoModal" class="photo-modal">
+        <div class="photo-modal-content">
+            <span class="close-photo">&times;</span>
+            <img id="modalImage" src="" alt="Preview">
+            <div class="photo-info" id="photoInfo"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23ffffff'/><path d='M30,40 L70,40 L70,60 L30,60 Z' fill='%23ffffff'/><circle cx='40' cy='35' r='5' fill='%23ffffff'/><circle cx='60' cy='35' r='5' fill='%23ffffff'/></svg>" 
+                         alt="SafeReport Logo" class="logo-img">
+                    SafeReport
+                </div>
+                <p>Protecting Victims' Privacy</p>
+                <p class="footer-note">This is a demonstration application. In a real implementation, all data would be encrypted and stored securely.</p>
+            </div>
+        </div>
+        
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
